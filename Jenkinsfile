@@ -9,7 +9,9 @@ node {
   }
 
   stage ('Build') {
-    output = docker.build 'jenkins-docker-pipeline-example'
+    docker.withServer('tcp://jag-python-dev:2376') {
+      output = docker.build 'jenkins-docker-pipeline-example'
+    }
   }
 
   stage ('Test') {
