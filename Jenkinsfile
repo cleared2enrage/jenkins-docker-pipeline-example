@@ -8,10 +8,6 @@ node {
     checkout scm
   }
 
-  stage('Identify') {
-    sh 'whoami'
-  }
-
   stage ('Build') {
     output = docker.build 'jenkins-docker-pipeline-example'
   }
