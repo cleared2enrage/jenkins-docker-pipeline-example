@@ -1,5 +1,6 @@
 #!/usr/bin/env groovy
 
+env.DOCKER_TLS_VERIFY=1
 node {
   def output
   def container
