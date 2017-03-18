@@ -4,10 +4,21 @@ services:
   web1:
     image: registry.local:5000/jenkins-docker-pipeline-example:latest
     container_name: web_1
-    ports:
-      - 9000:8000
+    networks:
+      backend:
   web2:
     image: registry.local:5000/jenkins-docker-pipeline-example:latest
     container_name: web_2
+    networks:
+      backend:
+  nginx:
+    image: nginx:1.11.10
     ports:
-      - 9001:8000
+      - 9000:9000
+    networks:
+      backend:
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+networks:
+  backend:
+    internal: true
