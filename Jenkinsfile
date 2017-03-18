@@ -1,6 +1,9 @@
 #!/usr/bin/env groovy
 
-env.DOCKER_TLS_VERIFY=1
+env.DOCKER_TLS_VERIFY="1"
+env.DOCKER_CERT_PATH="/var/jenkins_home/.docker/machine/machines/jag-python-dev"
+env.DOCKER_MACHINE_NAME="jag-python-dev"
+
 node {
   def output
   def container
