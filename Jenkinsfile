@@ -25,8 +25,10 @@ node {
   }
 
   stage ('Push') {
-    docker.withRegistry('http://registry.local:5000') {
-      output.push 'latest'
+    docker.withServer('tcp://jag-python-dev:2376', 'cc46adf4-0259-409b-9add-2953aff9c68e') {
+      docker.withRegistry('http://registry.local:5000') {
+        output.push 'latest'
+      }
     }
   }
 
