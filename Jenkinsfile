@@ -13,8 +13,8 @@ node {
   }
 
   stage ('Test') {
-    output.withRun('--name jenkins-docker-pipeline-example-test', 'tests.py') {
-      // What to do here?
+    output.inside('--name jenkins-docker-pipeline-example-test') {
+      sh 'python tests.py'
     }
   }
 
