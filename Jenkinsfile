@@ -12,6 +12,10 @@ node {
     output = docker.build 'jenkins-docker-pipeline-example'
   }
 
+  stage ('Test') {
+    output.run '' 'tests.py'
+  }
+
   stage ('Push') {
     docker.withRegistry('http://registry.local:5000') {
       output.push 'latest'
