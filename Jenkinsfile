@@ -28,7 +28,7 @@ node {
       CONTAINER_NAME='jenkins-docker-pipeline-example'
 
       CONTAINER_ID=`docker ps -qa --filter "name=$CONTAINER_NAME"`
-      if [ -n "$CONTAINER_ID" ] then
+      if [ -n "$CONTAINER_ID" ]; then
         docker stop $CONTAINER_ID
         docker rm $CONTAINER_ID
       fi
