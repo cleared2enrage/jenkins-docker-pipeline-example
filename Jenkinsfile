@@ -2,6 +2,7 @@
 
 node {
   def image
+  def container
 
   stage('Checkout') {
     checkout scm
@@ -19,5 +20,10 @@ node {
     docker.withRegistry('http://registry.local:5000') {
       image.push 'latest'
     }
+  }
+
+  stage ('Deploy') {
+    def secondImage = image 'registry.local:5000/jenkins-docker-pipeline-example:latest'
+    container = secondImage.run '-p 8000:5000'
   }
 }
