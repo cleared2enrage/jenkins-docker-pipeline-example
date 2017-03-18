@@ -13,7 +13,7 @@ node {
   }
 
   stage ('Test') {
-    output.run '' 'tests.py'
+    output.run ('', 'tests.py')
   }
 
   stage ('Push') {
