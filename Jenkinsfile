@@ -5,7 +5,7 @@ node {
     checkout scm
   }
   stage('Identify') {
-    echo $(whoami)
+    sh 'whoami'
   }
   stage ('Build') {
     docker.build 'jenkins-docker-pipeline-example'
