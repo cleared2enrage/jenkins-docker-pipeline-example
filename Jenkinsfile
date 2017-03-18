@@ -37,6 +37,7 @@ node {
   }
 
   stage ('Deploy Group') {
+    sh 'docker-compose build'
     sh 'docker-compose up -d'
   }
 }
