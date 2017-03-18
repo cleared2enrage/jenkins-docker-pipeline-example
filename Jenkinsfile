@@ -1,8 +1,10 @@
 #!/usr/bin/env groovy
 
 node {
-  stage 'Checkout'
+  stage('Checkout') {
     checkout scm
-  stage 'Build'
+  }
+  stage ('Build') {
     echo 'Nothing to build right now. Assume it passed'
+  }
 }
