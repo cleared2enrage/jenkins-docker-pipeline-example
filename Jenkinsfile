@@ -5,6 +5,8 @@ node {
     checkout scm
   }
   stage ('Build') {
-    docker.build('jenkins-docker-pipeline-example')
+    steps {
+      docker.build('jenkins-docker-pipeline-example')
+    }
   }
 }
