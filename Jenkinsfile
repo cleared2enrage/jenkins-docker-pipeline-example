@@ -5,6 +5,6 @@ node {
     checkout scm
   }
   stage ('Build') {
-    echo 'Nothing to build right now. Assume it passed'
+    sh 'docker build -t jenkins-docker-pipeline-example .'
   }
 }
