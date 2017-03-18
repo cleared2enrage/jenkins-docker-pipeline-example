@@ -24,6 +24,8 @@ node {
     }
   }
 
+
+
   // stage ('Push') {
   //   docker.withServer('tcp://jag-python-dev:2376', 'cc46adf4-0259-409b-9add-2953aff9c68e') {
   //     docker.withRegistry('http://registry.local:5000') {
@@ -33,6 +35,7 @@ node {
   // }
 
   stage ('Deploy') {
+    input 'Deploy?'
     docker.withServer('tcp://jag-python-dev:2376', 'cc46adf4-0259-409b-9add-2953aff9c68e') {
       sh 'docker-compose build'
       sh 'docker-compose up -d'
