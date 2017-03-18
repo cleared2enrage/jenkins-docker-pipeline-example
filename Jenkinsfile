@@ -35,4 +35,8 @@ node {
     '''
     container = secondImage.run '-p 8000:8000 --name jenkins-docker-pipeline-example'
   }
+
+  stage ('Deploy Group') {
+    sh 'docker-compose up -d'
+  }
 }
