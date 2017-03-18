@@ -12,7 +12,10 @@ services:
     networks:
       backend:
   nginx:
-    image: nginx:1.11.10
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    container_name: nginx
     ports:
       - 9000:9000
     networks:
