@@ -16,7 +16,7 @@ node {
   }
 
   stage ('Push') {
-    docker.withRegistry('http://registry:5000') {
+    docker.withRegistry('https://registry') {
       image.push 'latest'
     }
   }
