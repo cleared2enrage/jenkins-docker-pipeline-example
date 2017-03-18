@@ -6,7 +6,7 @@ WORKDIR /home/app
 COPY requirements.txt .
 RUN pip install -r requirements.txt
 
-COPY test.py .
+COPY tests.py .
 COPY app.py .
 
 ENTRYPOINT ["python"]
