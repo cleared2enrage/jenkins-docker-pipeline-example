@@ -19,7 +19,9 @@ node {
   }
 
   stage ('Test') {
-    sh 'docker run --rm jenkins-docker-pipeline-example tests.py'
+    docker.withServer('tcp://jag-python-dev:2376', 'cc46adf4-0259-409b-9add-2953aff9c68e') {
+      sh 'docker run --rm jenkins-docker-pipeline-example tests.py'
+    }
   }
 
   stage ('Push') {
@@ -43,7 +45,9 @@ node {
   }
 
   stage ('Deploy Group') {
-    sh 'docker-compose build'
-    sh 'docker-compose up -d'
+    docker.withServer('tcp://jag-python-dev:2376', 'cc46adf4-0259-409b-9add-2953aff9c68e') {
+      sh 'docker-compose build'
+      sh 'docker-compose up -d'
+    }
   }
 }
