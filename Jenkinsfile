@@ -31,7 +31,6 @@ node {
   //     }
   //   }
   // }
-  input 'Deploy?'
 
   stage ('Deploy') {
     docker.withServer('tcp://jag-python-dev:2376', 'cc46adf4-0259-409b-9add-2953aff9c68e') {
