@@ -1,7 +1,7 @@
 #!/usr/bin/env groovy
 
 node {
-  def image
+  def output
   def container
 
   stage('Checkout') {
@@ -13,17 +13,17 @@ node {
   }
 
   stage ('Build') {
-    image = docker.build 'jenkins-docker-pipeline-example'
+    output = docker.build 'jenkins-docker-pipeline-example'
   }
 
   stage ('Push') {
     docker.withRegistry('http://registry.local:5000') {
-      image.push 'latest'
+      output.push 'latest'
     }
   }
 
   stage ('Deploy') {
-    def secondImage = image 'registry.local:5000/jenkins-docker-pipeline-example:latest'
+    def secondImage = image('registry.local:5000/jenkins-docker-pipeline-example:latest')
     container = secondImage.run '-p 8000:5000'
   }
 }
