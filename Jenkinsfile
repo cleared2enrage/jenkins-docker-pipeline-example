@@ -13,9 +13,7 @@ node {
   }
 
   stage ('Test') {
-    output.inside('--name jenkins-docker-pipeline-example-test') {
-      sh 'python tests.py'
-    }
+    sh 'docker run --rm jenkins-docker-pipeline-example tests.py'
   }
 
   stage ('Push') {
