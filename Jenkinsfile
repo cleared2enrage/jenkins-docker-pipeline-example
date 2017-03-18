@@ -2,7 +2,8 @@
 
 node {
   def image
-
+  docker.withRegistry 'http://registry:5000'
+  
   stage('Checkout') {
     checkout scm
   }
@@ -16,7 +17,6 @@ node {
   }
 
   stage ('Push') {
-    docker.withRegistry 'http://registry:5000'
     image.push 'latest'
   }
 }
