@@ -13,7 +13,9 @@ node {
   }
 
   stage ('Test') {
-    output.run ('', 'tests.py')
+    output.withRun('--name jenkins-docker-pipeline-example-test', 'tests.py') {
+      // What to do here?
+    }
   }
 
   stage ('Push') {
