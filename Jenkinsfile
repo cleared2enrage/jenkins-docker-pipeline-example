@@ -23,7 +23,7 @@ node {
   }
 
   stage ('Deploy') {
-    def secondImage = image('registry.local:5000/jenkins-docker-pipeline-example:latest')
+    def secondImage = docker.image 'registry.local:5000/jenkins-docker-pipeline-example:latest'
     container = secondImage.run '-p 8000:5000'
   }
 }
