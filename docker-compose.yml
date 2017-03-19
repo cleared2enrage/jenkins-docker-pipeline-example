@@ -2,14 +2,12 @@ version: "3"
 
 services:
   web1:
-    build: .
-    image: jenkins-docker-pipeline-example
+    image: registry.local:5000/jenkins-docker-pipeline-example:latest
     container_name: web_1
     networks:
       backend:
   web2:
-    build: .
-    image: jenkins-docker-pipeline-example
+    image: registry.local:5000/jenkins-docker-pipeline-example:latest
     container_name: web_2
     networks:
       backend:
