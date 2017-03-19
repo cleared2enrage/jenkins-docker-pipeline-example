@@ -2,7 +2,7 @@
 
 node {
   def dockerHost = 'tcp://ec2-54-183-51-32.us-west-1.compute.amazonaws.com:2376'
-  def credentials 'ec2-54-183-51-32.us-west-1.compute.amazonaws.com'
+  def credentials = 'ec2-54-183-51-32.us-west-1.compute.amazonaws.com'
 
   def output
   def container
