@@ -23,6 +23,7 @@ node {
   }
 
   stage ('Test') {
+    performOnDockerServer() {
       sh 'docker run --rm jenkins-docker-pipeline-example tests.py'
     }
   }
